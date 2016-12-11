@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.rest.model.Course;
+import com.spring.rest.model.Courses;
 import com.spring.rest.model.Student;
 
 /**
@@ -57,8 +58,8 @@ public class StudentController {
     }	
 	
 	
-	@GetMapping("/courses")
-	public ResponseEntity<Course> getCourses() {
+	@GetMapping("/course")
+	public ResponseEntity<List<Course>> getCourse() {
 
 		List<Course> lc = new ArrayList<Course>();
 		
@@ -67,6 +68,28 @@ public class StudentController {
 		course.setScore(10);
 		lc.add(course);
 
-		return new ResponseEntity<Course>(course, HttpStatus.OK);
+		return new ResponseEntity<List<Course>>(lc, HttpStatus.OK);
+	}
+	
+	@GetMapping("/courses")
+	public ResponseEntity<Courses> getCourses() {
+
+		Courses courses  = new Courses();
+		
+		List<Course> lc = new ArrayList<Course>();
+		
+		Course course = new Course();
+		course.setCourseName("test");
+		course.setScore(10);
+		
+		Course course2 = new Course();
+		course2.setCourseName("test2");
+		course2.setScore(20);
+		
+		lc.add(course);
+		lc.add(course2);
+		courses.setCourses(lc);
+		
+		return new ResponseEntity<Courses>(courses, HttpStatus.OK);
 	}
 }
