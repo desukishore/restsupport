@@ -6,7 +6,6 @@ package com.spring.rest.controller;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -19,7 +18,7 @@ public class SpringRestTestClient {
 
 	/* GET */
 	@SuppressWarnings("unchecked")
-	private static void listAllCustomers() {
+	private static void listAllCourses() {
 		System.out.println("Testing listAllUsers API-----------");
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -37,6 +36,6 @@ public class SpringRestTestClient {
 	}
 
 	public static void main(String args[]) {
-		listAllCustomers();
+		listAllCourses();
 	}
 }
